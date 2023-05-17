@@ -1,0 +1,44 @@
+<idea-plugin>
+    <id>com.example.FlutterVersionSwitcher</id>
+    <name>Flutter Version Switcher</name>
+    <version>1.0</version>
+    <vendor email="your.email@example.com" url="http://www.example.com">YourName</vendor>
+
+    <description><![CDATA[
+      Plugin para trocar a versão do Flutter no IntelliJ IDEA e Android Studio.
+  ]]></description>
+
+    <change-notes>
+        <![CDATA[
+      Versão inicial
+    ]]>
+    </change-notes>
+    <depends>com.intellij.modules.androidstudio</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="com.example.flutterversionswitcher.FlutterVersionSwitcherConfig"/>
+    </extensions>
+
+    <actions>
+        <action id="com.example.flutterversionswitcher.SetCurrentFlutterVersion"
+                class="com.example.flutterversionswitcher.SetCurrentFlutterVersionAction"
+                text="Set Current Flutter Version"
+                description="Set the current Flutter version">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="FlutterVersionSwitcher.ConfigurePath"
+                class="com.example.flutterversionswitcher.ConfigurePathAction"
+                text="Configurar Caminho"
+                description="Configurar o caminho do arquivo">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+
+        </action>
+
+        <action id="FlutterVersionSwitcher.ShowFlutterVersion"
+                class="com.example.flutterversionswitcher.ShowFlutterVersionAction"
+                text="Mostrar Versão do Flutter">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt V"/>
+            <add-to-group group-id="EditorPopupMenu"/>
+        </action>
+    </actions>
+</idea-plugin>
